@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WORKS | Mochida Manato - Works Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="stage">
+<div class="page page-works">
+
+  <!-- 装飾サークル -->
+  <div class="circle" style="left:-18.23vw; top:-28.39vw; width:64.58vw; height:64.58vw;"></div>
+  <div class="circle" style="left:-27.66vw; top:27.66vw; width:64.58vw; height:64.58vw;"></div>
+
+  <!-- ナビゲーション -->
+  <nav class="nav-pill">
+    <a href="index.html" class="nav-link">Top</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="works.html" class="nav-link is-active">Works</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </nav>
+
+  <!-- 背景ウォーターマーク -->
+  <p class="watermark watermark--label">WORKS</p>
+
+  <!-- 見出し -->
+  <h1 class="works-heading anim-in" style="animation-delay:0.1s;">
+    <p>制作</p>
+    <p>　実績</p>
+  </h1>
+
+  <!-- 作品カルーセル：上下にカーソルを合わせると切り替わる -->
+  <div class="works-viewport anim-in" style="animation-delay:0.3s;">
+    <div class="works-track" id="worksTrack">
+
+      <a href="#" class="work-card">
+        <span class="work-title">Project 01</span>
+        <span class="work-arrow">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 18L18 6M18 6H8M18 6V16" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <a href="#" class="work-card">
+        <span class="work-title">Project 02</span>
+        <span class="work-arrow">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 18L18 6M18 6H8M18 6V16" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <a href="#" class="work-card">
+        <span class="work-title">Project 03</span>
+        <span class="work-arrow">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 18L18 6M18 6H8M18 6V16" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <a href="#" class="work-card">
+        <span class="work-title">Project 04</span>
+        <span class="work-arrow">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 18L18 6M18 6H8M18 6V16" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <a href="#" class="work-card">
+        <span class="work-title">Project 05</span>
+        <span class="work-arrow">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 18L18 6M18 6H8M18 6V16" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <a href="#" class="work-card">
+        <span class="work-title">Project 06</span>
+        <span class="work-arrow">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 18L18 6M18 6H8M18 6V16" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- 上下のホバー領域（透明・ここにマウスを乗せると自動で切り替わる） -->
+  <div class="works-hover-zone works-hover-zone--up" id="worksHoverUp"></div>
+  <div class="works-hover-zone works-hover-zone--down" id="worksHoverDown"></div>
+
+  <!-- ホバー中に表示する矢印インジケーター -->
+  <div class="works-nav-indicator works-nav-indicator--up">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="works-nav-indicator works-nav-indicator--down">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <p class="works-hint">MOVE CURSOR UP / DOWN TO BROWSE</p>
+
+  <p class="copyright">©2026 Mochida Manato</p>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
