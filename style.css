@@ -1,0 +1,922 @@
+/* ==========================================================================
+   Mochida Manato - Works Portfolio
+   共通スタイルシート
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #1c1c1c;
+  --white: #ffffff;
+  --dark-text: #2e2e2e;
+  --muted: #d9d9d9;
+  --font-en: 'Jost', sans-serif;
+  --font-jp: 'Noto Sans JP', 'Jost', sans-serif;
+  --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-en);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+a {
+  color: inherit;
+}
+
+/* ---------- ウィンドウに収める外枠 ---------- */
+.stage {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  background: var(--bg);
+  padding: 24px;
+}
+
+/* ---------- ページ共通キャンバス（1920×1080固定・JSでスケール） ---------- */
+.page {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  flex-shrink: 0;
+  overflow: hidden;
+  transform-origin: center center;
+  margin: 0 auto;
+}
+
+/* ---------- ナビゲーション（左上ピル） ---------- */
+.nav-pill {
+  position: absolute;
+  top: 32px;
+  left: 45px;
+  width: 471px;
+  height: 47px;
+  background: var(--white);
+  border-radius: 23.5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 100;
+}
+
+.nav-link {
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.16px;
+  color: var(--dark-text);
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 18px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  background: #ececec;
+}
+
+.nav-link.is-active {
+  background: var(--dark-text);
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* ---------- 装飾サークル（Ellipse） ---------- */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+}
+
+/* ---------- 背景の大きなウォーターマーク文字 ---------- */
+.watermark {
+  position: absolute;
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: 280px;
+  line-height: 1;
+  letter-spacing: 34px;
+  color: var(--white);
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  animation: fadeIn 1.6s var(--ease-out) 0.1s forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 0.1; }
+}
+
+/* ---------- コピーライト（右下固定） ---------- */
+.copyright {
+  position: absolute;
+  right: 67px;
+  top: 1019px;
+  font-family: var(--font-en);
+  font-size: 14px;
+  letter-spacing: 5.46px;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+/* ---------- プロフィール写真（丸型） ---------- */
+.portrait {
+  position: absolute;
+  left: 1064px;
+  top: 202px;
+  width: 695px;
+  height: 695px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #333;
+}
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- 見出し「Mochida Manato」 ---------- */
+.hero-name {
+  position: absolute;
+  left: 210px;
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: 181px;
+  line-height: 0.876;
+  letter-spacing: 1.81px;
+  color: var(--white);
+  margin: 0;
+  z-index: 1;
+}
+.hero-name p {
+  margin: 0;
+}
+
+/* ---------- 初回表示アニメーション（文字がふわっと現れる） ---------- */
+.anim-in {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: fadeUp 0.9s var(--ease-out) forwards;
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   TOP ページ
+   ========================================================================== */
+.page-top .hero-name {
+  top: 300px;
+}
+.page-top .tagline {
+  position: absolute;
+  left: 213px;
+  top: 661px;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 12.48px;
+  line-height: 0.876;
+  margin: 0;
+}
+.page-top .watermark--label {
+  right: 70px;
+  top: -250px;
+  left: auto;
+  width: auto;
+  text-align: right;
+}
+
+/* ==========================================================================
+   ABOUT ページ
+   ========================================================================== */
+.page-about .hero-name {
+  top: 259px;
+}
+.page-about .watermark--label {
+  left: 450px;
+  top: 460px;
+  width: 1920px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.page-about .name-jp {
+  position: absolute;
+  left: 211px;
+  top: 585px;
+  font-family: var(--font-jp);
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1.59;
+  letter-spacing: 9.6px;
+  margin: 0;
+}
+
+.stats {
+  position: absolute;
+  left: 469px;
+  top: 720px;
+  display: flex;
+  gap: 73px;
+}
+.stats .stat {
+  position: relative;
+  color: var(--muted);
+}
+.stats .stat .num {
+  display: block;
+  font-family: var(--font-en);
+  font-weight: 600;
+  font-size: 64px;
+  letter-spacing: -1.92px;
+  line-height: 1;
+}
+.stats .stat .label {
+  display: block;
+  font-family: var(--font-en);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.77px;
+  margin-bottom: 4px;
+}
+
+.bio-jp {
+  position: absolute;
+  left: 469px;
+  top: 845px;
+  font-family: var(--font-jp);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.59;
+  letter-spacing: 4.8px;
+  color: var(--white);
+  margin: 0;
+}
+.bio-jp p {
+  margin: 0;
+}
+
+/* ==========================================================================
+   WORKS ページ（ホバーで縦スクロールするカルーセル）
+   ========================================================================== */
+.page-works .watermark--label {
+  right: 400px;
+  top: 20px;
+  width: 1920px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.works-heading {
+  position: absolute;
+  left: 195px;
+  top: 210px;
+  font-family: var(--font-jp);
+  font-weight: 400;
+  font-size: 112px;
+  line-height: 1.05;
+  letter-spacing: -3.2px;
+  margin: 0;
+  z-index: 1;
+}
+.works-heading p {
+  margin: 0;
+  white-space: pre;
+}
+
+/* カルーセルを表示する窓（この範囲だけが見える） */
+.works-viewport {
+  position: absolute;
+  left: 900px;
+  top: 165px;
+  width: 880px;
+  height: 750px;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 32px;
+  -webkit-mask-image: linear-gradient(to bottom,
+    transparent 0,
+    rgba(0,0,0,0.35) 60px,
+    #000 130px,
+    #000 calc(100% - 130px),
+    rgba(0,0,0,0.35) calc(100% - 60px),
+    transparent 100%);
+  mask-image: linear-gradient(to bottom,
+    transparent 0,
+    rgba(0,0,0,0.35) 60px,
+    #000 130px,
+    #000 calc(100% - 130px),
+    rgba(0,0,0,0.35) calc(100% - 60px),
+    transparent 100%);
+}
+
+/* カードを縦に並べるトラック。JSでtranslateYさせる */
+.works-track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  transition: transform 0.7s var(--ease-smooth);
+  will-change: transform;
+}
+
+.work-card {
+  position: relative;
+  flex-shrink: 0;
+  width: 880px;
+  height: 550px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 32px;
+  background: var(--bg);
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease, border-color 0.4s ease, transform 0.5s var(--ease-smooth);
+  transform: scale(0.92);
+  opacity: 0.55;
+}
+.work-card.is-active {
+  opacity: 1;
+  transform: scale(1);
+  border-color: rgba(255, 255, 255, 0.95);
+}
+.work-card:hover {
+  background: #242424;
+}
+
+.work-card .work-title {
+  position: absolute;
+  left: 40px;
+  top: 34px;
+  font-family: var(--font-jp);
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s var(--ease-out) 0.15s, transform 0.5s var(--ease-out) 0.15s;
+}
+.work-card.is-active .work-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.work-card .work-arrow {
+  position: absolute;
+  right: 26px;
+  bottom: 26px;
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s var(--ease-out) 0.25s, transform 0.5s var(--ease-out) 0.25s;
+}
+.work-card.is-active .work-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+.work-card .work-arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* 上下のホバーゾーン：ここにカーソルを置くと作品が切り替わる */
+.works-hover-zone {
+  position: absolute;
+  left: 900px;
+  width: 880px;
+  height: 140px;
+  z-index: 2;
+  cursor: pointer;
+}
+.works-hover-zone--up {
+  top: 165px;
+}
+.works-hover-zone--down {
+  top: 775px;
+}
+
+.works-hint {
+  position: absolute;
+  left: 900px;
+  top: 930px;
+  width: 880px;
+  text-align: center;
+  font-family: var(--font-jp);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.4);
+  z-index: 1;
+}
+
+/* 上下ホバー中に見せる矢印インジケーター */
+.works-nav-indicator {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+.works-nav-indicator svg {
+  width: 22px;
+  height: 22px;
+}
+.works-nav-indicator--up {
+  left: 1340px;
+  top: 205px;
+}
+.works-nav-indicator--down {
+  left: 1340px;
+  top: 845px;
+}
+.works-hover-zone--up:hover ~ .works-nav-indicator--up,
+.works-hover-zone--down:hover ~ .works-nav-indicator--down {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   CONTACT ページ
+   ========================================================================== */
+.page-contact .watermark--label {
+  right: 200px;
+  top: 550px;
+  width: 1920px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.contact-block {
+  position: absolute;
+  left: 890px;
+  top: 300px;
+  z-index: 1;
+}
+
+.contact-email {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  text-decoration: none;
+  color: var(--white);
+}
+.contact-email svg {
+  width: 55px;
+  height: 35px;
+  flex-shrink: 0;
+}
+.contact-email span {
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: 64px;
+  letter-spacing: 0.64px;
+}
+
+.social-links {
+  display: flex;
+  gap: 45px;
+  margin-top: 140px;
+  padding-left: 644px;
+}
+.social-links a {
+  width: 102px;
+  height: 102px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+.social-links a:hover {
+  transform: scale(1.06);
+}
+.social-links svg {
+  width: 44px;
+  height: 44px;
+}
+
+
+#cursor-ring {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, .9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  transition: width .25s ease, height .25s ease, background-color .18s ease;
+}
+
+.cursor-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(.6);
+  transition: opacity .18s, transform .22s;
+}
+
+.cursor-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#cursor-ring.is-hover {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, .20);
+  backdrop-filter: blur(8px);
+}
+
+#cursor-ring.is-hover .cursor-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#cursor-ring.is-down {
+  background: rgba(255, 255, 255, .58);
+  transform: translate(-50%, -50%) scale(.82);
+}
+
+.nav-link,
+.work-card,
+.contact-email,
+.social-links a {
+  transition: transform .35s cubic-bezier(.22, 1, .36, 1);
+  will-change: transform;
+}
+
+@media (max-width: 1280px) {
+  .nav-pill {
+    left: 24px;
+    top: 24px;
+    width: auto;
+    max-width: calc(100% - 48px);
+    padding: 0 14px;
+    gap: 4px;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 47px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .watermark {
+    font-size: 180px;
+    letter-spacing: 20px;
+  }
+
+  .page-top .hero-name {
+    left: 80px;
+    top: 250px;
+    font-size: 140px;
+  }
+
+  .page-top .tagline {
+    left: 82px;
+    top: 560px;
+    font-size: 24px;
+    letter-spacing: 8px;
+  }
+
+  .page-about .hero-name {
+    left: 80px;
+    top: 220px;
+    font-size: 140px;
+  }
+
+  .page-about .name-jp {
+    left: 80px;
+    top: 530px;
+    font-size: 38px;
+    letter-spacing: 6px;
+  }
+
+  .stats {
+    left: 80px;
+    top: 640px;
+    gap: 42px;
+  }
+
+  .bio-jp {
+    left: 80px;
+    top: 770px;
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+
+  .portrait {
+    right: 80px;
+    top: 220px;
+    width: 420px;
+    height: 420px;
+  }
+
+  .page-works .works-heading {
+    left: 80px;
+    top: 180px;
+    font-size: 84px;
+  }
+
+  .works-viewport {
+    left: 560px;
+    top: 180px;
+    width: 620px;
+    height: 650px;
+  }
+
+  .work-card {
+    width: 100%;
+    height: 420px;
+  }
+
+  .works-hover-zone {
+    left: 560px;
+    width: 620px;
+    height: 120px;
+  }
+
+  .works-hover-zone--up {
+    top: 180px;
+  }
+
+  .works-hover-zone--down {
+    top: 710px;
+  }
+
+  .works-nav-indicator--up {
+    left: 890px;
+    top: 210px;
+  }
+
+  .works-nav-indicator--down {
+    left: 890px;
+    top: 740px;
+  }
+
+  .works-hint {
+    left: 560px;
+    top: 860px;
+    width: 620px;
+  }
+
+  .page-contact .contact-block {
+    left: 80px;
+    top: 240px;
+  }
+
+  .contact-email span {
+    font-size: 42px;
+  }
+
+  .social-links {
+    margin-top: 80px;
+    padding-left: 0;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .stage {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 16px;
+  }
+
+  .page {
+    transform-origin: top center;
+  }
+
+  .copyright {
+    right: 20px;
+    top: auto;
+    bottom: 20px;
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  .nav-pill {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 24px;
+    width: 100%;
+  }
+
+  .page-top .hero-name,
+  .page-about .hero-name {
+    position: relative;
+    left: 0;
+    top: 0;
+    font-size: 86px;
+    margin-top: 20px;
+  }
+
+  .page-top .tagline {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-top: 12px;
+    font-size: 20px;
+    letter-spacing: 6px;
+  }
+
+  .page-top .portrait,
+  .page-about .portrait {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: min(100%, 320px);
+    height: min(100%, 320px);
+    margin-top: 24px;
+  }
+
+  .page-about .name-jp,
+  .stats,
+  .bio-jp {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-top: 20px;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .page-about .watermark--label,
+  .page-top .watermark--label,
+  .page-contact .watermark--label,
+  .page-works .watermark--label {
+    display: none;
+  }
+
+  .page-works .works-heading {
+    position: relative;
+    left: 0;
+    top: 0;
+    font-size: 56px;
+    margin-top: 16px;
+  }
+
+  .page-works .works-viewport {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 420px;
+    margin-top: 24px;
+  }
+
+  .works-hover-zone,
+  .works-nav-indicator,
+  .works-hint {
+    display: none;
+  }
+
+  .page-contact .contact-block {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-top: 24px;
+  }
+
+  .contact-email span {
+    font-size: 24px;
+  }
+
+  .social-links {
+    margin-top: 40px;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-pill {
+    justify-content: center;
+    padding: 10px 12px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+
+  .page-top .hero-name,
+  .page-about .hero-name {
+    font-size: 60px;
+    line-height: 1;
+  }
+
+  .page-top .tagline {
+    font-size: 16px;
+    letter-spacing: 4px;
+  }
+
+  .page-about .name-jp {
+    font-size: 28px;
+    letter-spacing: 3px;
+  }
+
+  .stats .stat .num {
+    font-size: 40px;
+  }
+
+  .stats .stat .label {
+    font-size: 10px;
+  }
+
+  .bio-jp {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  .page-works .works-heading {
+    font-size: 38px;
+  }
+
+  .work-card {
+    height: 320px;
+    border-radius: 20px;
+  }
+
+  .contact-email {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .contact-email span {
+    font-size: 18px;
+    letter-spacing: 0.5px;
+  }
+
+  .social-links a {
+    width: 72px;
+    height: 72px;
+  }
+}
+
